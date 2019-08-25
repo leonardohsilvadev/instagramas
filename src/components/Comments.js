@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, Dimensions, Alert } from 'react-native';
+import { StyleSheet, View, Text} from 'react-native';
 
 class Comments extends React.Component {
     render() {

@@ -1,4 +1,4 @@
 import { AppRegistry } from 'react-native';
-import App from './App';
+import Feed from './src/screens/Feed';
 
-AppRegistry.registerComponent('instagramax', () => App);
+AppRegistry.registerComponent('instagramax', () => Feed);

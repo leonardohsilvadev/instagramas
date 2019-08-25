@@ -1,26 +1,27 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, TextInput, Image } from 'react-native';
-import icon from '../../assets/imgs/icon.png';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
 
-class Login extends React.Component {
+class Register extends React.Component {
     state = {
+        name: '',
         email: '',
         password: '',
     };
 
-    login = () => {
-        const { navigation } = this.props;
-
-        navigation.navigate('Profile')
-    }
-
     render() {
-        const { navigation } = this.props;
-
         return (
             <View style={styles.container}>
-                    <Image source={icon} style={styles.image} />
-                    <Text style={styles.text}>Bem vindo ao Instagramas !</Text>
+                <Text
+                    style={styles.text}>
+                        Não perca tempo, comece a compartilhar suas fotos agora!
+                </Text>
+
+                <TextInput
+                    placeholder='Nome'
+                    style={styles.input}
+                    value={this.state.name}
+                    onChangeText={name => this.setState({ name })}
+                />
 
                 <TextInput
                     placeholder='Email'
@@ -35,18 +36,12 @@ class Login extends React.Component {
                     style={styles.input}
                     value={this.state.password}
                     onChangeText={password => this.setState({ password })}
-                    keyboardType='visible-password'
                     secureTextEntry={true}
                 />
 
-                <TouchableOpacity onPress={this.login} style={styles.button}>
-                    <Text style={styles.buttonText}>Login</Text>
+                <TouchableOpacity onPress={() => {}} style={styles.button}>
+                    <Text style={styles.buttonText}>Salvar</Text>
                 </TouchableOpacity>
-
-                <TouchableOpacity onPress={() => navigation.navigate('Register')} style={styles.button}>
-                    <Text style={styles.buttonText}>Registrar</Text>
-                </TouchableOpacity>
-                    
             </View>
         )
     }
@@ -58,17 +53,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
-    image: {
-        width: 150,
-        height: 150,
-        borderRadius: 75,
-        marginTop: 50,
-        resizeMode: 'contain',
-    },
     text: {
-        marginTop: 30,
-        fontSize: 30,
-        fontWeight: 'bold'
+        marginLeft: 10,
+        fontSize: 20,
+        fontWeight: 'bold',
     },
     button: {
         marginTop: 30,
@@ -84,9 +72,10 @@ const styles = StyleSheet.create({
         width: '90%',
         backgroundColor: '#EEE',
         height: 40,
+        paddingLeft: 15,
         borderWidth: 1,
         borderColor: '#333',
     }
 })
 
-export default Login;
+export default Register;

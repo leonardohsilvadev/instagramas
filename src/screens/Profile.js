@@ -2,9 +2,14 @@ import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { Gravatar } from 'react-native-gravatar';
 
-class Profile extends React.Component {
-    logout = () => {
 
+
+class Profile extends React.Component {
+    
+    logout = () => {
+        const { navigation } = this.props;
+
+        navigation.navigate('Auth');
     }
 
     render() {

@@ -6,7 +6,7 @@ export default props => {
     return (
         <View style={styles.container}>
             <Gravatar options={{ email: props.email, secure: true }} style={styles.avatar} />
-            <Text style={styles.autor}>{props.autor}</Text>
+            <Text style={styles.author}>{props.author}</Text>
         </View>
     )
 }
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         marginHorizontal: 10
     },
-    autor: {
+    author: {
         color: '#444',
         marginVertical: 10,
         fontSize: 15,

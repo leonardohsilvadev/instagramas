@@ -10,12 +10,25 @@ import Post from './src/components/Post';
 
 export default class App extends Component {
   render() {
+    const comments = [{
+      author: 'Friedrich Nietzsche',
+      comment: 'Adorei !'
+    }, {
+      author: 'David Hume',
+      comment: 'Fascinante!'
+    }, {
+      author: 'Hermes Trismegisto',
+      comment: 'Bom Diaa'
+    }, {
+      author: 'Arthur Schopenhauer',
+      comment: 'Odiei...'
+    }]
     return (
       <View style={{ flex: 1 }}>
       
       <Header />
       
-      <Post image={require('./assets/imgs/fence.jpg')} />
+      <Post image={require('./assets/imgs/fence.jpg')} comments={comments} />
       
       </View>
     );

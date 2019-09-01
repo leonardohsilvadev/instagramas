@@ -22,6 +22,9 @@ class AddPhoto extends React.Component {
     pickImage = () => {
         ImagePicker.showImagePicker({
             title: 'Escolha a Imagem',
+            takePhotoButtonTitle: 'Tirar Foto',
+            chooseFromLibraryButtonTitle: 'Escolher da Galeria',
+            cancelButtonTitle: 'Cancelar',
             maxHeight: 600,
             maxWidth: 800
         }, res => {

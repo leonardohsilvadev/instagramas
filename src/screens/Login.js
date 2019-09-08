@@ -2,13 +2,19 @@ import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, Image } from 'react-native';
 import icon from '../../assets/imgs/icon.png';
 
+import { connect } from 'react-redux';
+import { login } from '../store/actions/user';
+import { USER_LOGGED_IN } from '../store/actions/actionTypes';
+
 class Login extends React.Component {
     state = {
+        name: 'kkk',
         email: '',
         password: '',
     };
 
     login = () => {
+        this.props.onLogin({ ...this.state })
         const { navigation } = this.props;
 
         navigation.navigate('Profile')
@@ -89,4 +95,10 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Login;
+const mapDispatchToProps = dispatch => {
+    return {
+        onLogin: user => dispatch(login(user))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Login);

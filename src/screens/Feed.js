@@ -1,37 +1,17 @@
 import React from 'react';
 import { StyleSheet, FlatList, View } from 'react-native';
+import { connect } from 'react-redux';
+
 import Header from '../components/Header';
 import Post from '../components/Post';
 
 class Feed extends React.Component {
-    state = {
-        posts: [{
-            id: Math.random,
-            author: 'Karl Marx',
-            email: 'karlosmarkos.commie@gmail.com',
-            image: require('../../assets/imgs/fence.jpg'),
-            comments: [{
-                author: 'Friedrich Angels',
-                comment: 'Bela foto caro amigo!'
-            }, {
-                author: 'Charles Darwin',
-                comment: 'Ta evoluindo em garoto'
-            }]
-        }, {
-            id: Math.random,
-            author: 'Aleister Crowley',
-            email: 'crowleyzin@thelemail.com',
-            image: require('../../assets/imgs/bw.jpg'),
-            comments: [],
-        }]
-    }
-
-    render() {
+        render() {
         return (
             <View style={styles.container}>
                 <Header />
                 <FlatList
-                    data={this.state.posts}
+                    data={this.props.posts}
                     keyExtractor={item => `${item.id}`}
                     renderItem={({ item }) => <Post key={item.id} {...item} />}
                 />
@@ -49,4 +29,10 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Feed;
+const mapStateToProps = ({ posts }) => {
+    return {
+        posts: posts.posts,
+    }
+}
+
+export default connect(mapStateToProps, null)(Feed);

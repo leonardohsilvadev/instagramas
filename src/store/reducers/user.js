@@ -20,7 +20,7 @@ const reducer = (state = initialState, action) => {
                 email: null
             }
         default:
-            return  state
+            return state
     }
 }
 
